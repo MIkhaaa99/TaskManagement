@@ -1,2 +1,9 @@
-package com.sarks.testtask.repository;public interface TaskRepository {
+package com.sarks.testtask.repository;
+
+import com.sarks.testtask.entity.Task;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface TaskRepository extends JpaRepository<Task, Long> {
 }

@@ -1,2 +1,9 @@
-package com.sarks.testtask.repository;public interface CommentRepository {
+package com.sarks.testtask.repository;
+
+import com.sarks.testtask.entity.Comment;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface CommentRepository extends JpaRepository<Comment, Long> {
 }

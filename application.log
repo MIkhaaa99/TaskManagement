@@ -1,0 +1,180 @@
+2024-12-13T14:32:40.635+03:00  INFO 14792 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Starting TesttaskApplication using Java 17.0.2 with PID 14792 (C:\Users\ms199\Desktop\TaskManagementSystem\target\classes started by ms199 in C:\Users\ms199\Desktop\TaskManagementSystem)
+2024-12-13T14:32:40.644+03:00 DEBUG 14792 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Running with Spring Boot v3.4.0, Spring v6.2.0
+2024-12-13T14:32:40.646+03:00  INFO 14792 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-12-13T14:32:45.581+03:00  INFO 14792 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Started TesttaskApplication in 5.396 seconds (process running for 5.894)
+2024-12-13T14:34:43.144+03:00 DEBUG 14792 --- [testtask] [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    insert 
+    into
+        employees
+        (password, role, username) 
+    values
+        (?, ?, ?)
+2024-12-13T14:34:43.198+03:00 DEBUG 14792 --- [testtask] [http-nio-8080-exec-3] c.s.testtask.service.EmployeeService     : Created employee from DB: Employee(id=4, username=ivan@mail.ru, password=1234, role=PERFORMER) 
+2024-12-13T14:34:43.200+03:00 DEBUG 14792 --- [testtask] [http-nio-8080-exec-3] c.s.testtask.service.EmployeeService     : EmployeeDto: Employee(id=4, username=ivan@mail.ru, password=1234, role=PERFORMER) 
+2024-12-13T14:36:33.042+03:00  INFO 4280 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Starting TesttaskApplication using Java 17.0.2 with PID 4280 (C:\Users\ms199\Desktop\TaskManagementSystem\target\classes started by ms199 in C:\Users\ms199\Desktop\TaskManagementSystem)
+2024-12-13T14:36:33.045+03:00 DEBUG 4280 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Running with Spring Boot v3.4.0, Spring v6.2.0
+2024-12-13T14:36:33.046+03:00  INFO 4280 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-12-13T14:36:37.364+03:00  INFO 4280 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Started TesttaskApplication in 4.748 seconds (process running for 5.17)
+2024-12-13T14:36:48.917+03:00 DEBUG 4280 --- [testtask] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        employees
+        (password, role, username) 
+    values
+        (?, ?, ?)
+2024-12-13T14:36:48.962+03:00 DEBUG 4280 --- [testtask] [http-nio-8080-exec-2] c.s.testtask.service.EmployeeService     : Created employee from DB: Employee(id=5, username=zara@mail.ru, password=1234, role=PERFORMER) 
+2024-12-13T14:36:48.963+03:00 DEBUG 4280 --- [testtask] [http-nio-8080-exec-2] c.s.testtask.service.EmployeeService     : EmployeeDto: Employee(id=5, username=zara@mail.ru, password=1234, role=PERFORMER) 
+2024-12-13T14:43:32.159+03:00  INFO 12116 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Starting TesttaskApplication using Java 17.0.2 with PID 12116 (C:\Users\ms199\Desktop\TaskManagementSystem\target\classes started by ms199 in C:\Users\ms199\Desktop\TaskManagementSystem)
+2024-12-13T14:43:32.162+03:00 DEBUG 12116 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Running with Spring Boot v3.4.0, Spring v6.2.0
+2024-12-13T14:43:32.164+03:00  INFO 12116 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-12-13T14:43:37.494+03:00  INFO 12116 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Started TesttaskApplication in 5.883 seconds (process running for 6.313)
+2024-12-13T14:43:48.749+03:00 DEBUG 12116 --- [testtask] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    insert 
+    into
+        employees
+        (password, role, username) 
+    values
+        (?, ?, ?)
+2024-12-13T14:43:48.809+03:00 DEBUG 12116 --- [testtask] [http-nio-8080-exec-8] c.s.testtask.service.EmployeeService     : Created employee from DB: Employee(id=6, username=zaraa@mail.ru, password=123456, role=PERFORMER) 
+2024-12-13T14:43:48.810+03:00 DEBUG 12116 --- [testtask] [http-nio-8080-exec-8] c.s.testtask.service.EmployeeService     : EmployeeDto: Employee(id=6, username=zaraa@mail.ru, password=123456, role=PERFORMER) 
+2024-12-13T14:45:40.067+03:00 DEBUG 12116 --- [testtask] [http-nio-8080-exec-9] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.password,
+        e1_0.role,
+        e1_0.username 
+    from
+        employees e1_0
+2024-12-13T14:46:10.915+03:00 DEBUG 12116 --- [testtask] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.password,
+        e1_0.role,
+        e1_0.username 
+    from
+        employees e1_0 
+    where
+        e1_0.id=?
+2024-12-13T14:46:10.924+03:00 DEBUG 12116 --- [testtask] [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    delete 
+    from
+        employees 
+    where
+        id=?
+2024-12-13T14:46:14.572+03:00 DEBUG 12116 --- [testtask] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.password,
+        e1_0.role,
+        e1_0.username 
+    from
+        employees e1_0 
+    where
+        e1_0.id=?
+2024-12-13T14:46:14.574+03:00 DEBUG 12116 --- [testtask] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    delete 
+    from
+        employees 
+    where
+        id=?
+2024-12-13T14:46:16.712+03:00 DEBUG 12116 --- [testtask] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.password,
+        e1_0.role,
+        e1_0.username 
+    from
+        employees e1_0 
+    where
+        e1_0.id=?
+2024-12-13T14:46:16.714+03:00 DEBUG 12116 --- [testtask] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    delete 
+    from
+        employees 
+    where
+        id=?
+2024-12-13T15:17:08.951+03:00  INFO 16392 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Starting TesttaskApplication using Java 17.0.2 with PID 16392 (C:\Users\ms199\Desktop\TaskManagementSystem\target\classes started by ms199 in C:\Users\ms199\Desktop\TaskManagementSystem)
+2024-12-13T15:17:08.954+03:00 DEBUG 16392 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Running with Spring Boot v3.4.0, Spring v6.2.0
+2024-12-13T15:17:08.955+03:00  INFO 16392 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-12-13T15:17:13.344+03:00  INFO 16392 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Started TesttaskApplication in 4.864 seconds (process running for 5.253)
+2024-12-13T15:20:23.982+03:00 DEBUG 16392 --- [testtask] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    insert 
+    into
+        employees
+        (password, role, username) 
+    values
+        (?, ?, ?)
+2024-12-13T15:20:24.008+03:00 ERROR 16392 --- [testtask] [http-nio-8080-exec-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "employees_username_key"
+  Подробности: Ключ "(username)=(ivan@mail.ru)" уже существует.
+2024-12-13T15:24:47.973+03:00  INFO 10768 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Starting TesttaskApplication using Java 17.0.2 with PID 10768 (C:\Users\ms199\Desktop\TaskManagementSystem\target\classes started by ms199 in C:\Users\ms199\Desktop\TaskManagementSystem)
+2024-12-13T15:24:47.981+03:00 DEBUG 10768 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Running with Spring Boot v3.4.0, Spring v6.2.0
+2024-12-13T15:24:47.983+03:00  INFO 10768 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-12-13T15:24:53.640+03:00  INFO 10768 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Started TesttaskApplication in 6.152 seconds (process running for 6.51)
+2024-12-13T15:25:00.387+03:00 DEBUG 10768 --- [testtask] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    insert 
+    into
+        employees
+        (password, role, username) 
+    values
+        (?, ?, ?)
+2024-12-13T15:25:00.401+03:00 ERROR 10768 --- [testtask] [http-nio-8080-exec-2] o.h.engine.jdbc.spi.SqlExceptionHelper   : ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "employees_username_key"
+  Подробности: Ключ "(username)=(ivan@mail.ru)" уже существует.
+2024-12-13T15:27:25.733+03:00  INFO 4008 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Starting TesttaskApplication using Java 17.0.2 with PID 4008 (C:\Users\ms199\Desktop\TaskManagementSystem\target\classes started by ms199 in C:\Users\ms199\Desktop\TaskManagementSystem)
+2024-12-13T15:27:25.735+03:00 DEBUG 4008 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Running with Spring Boot v3.4.0, Spring v6.2.0
+2024-12-13T15:27:25.737+03:00  INFO 4008 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-12-13T15:27:29.822+03:00  INFO 4008 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Started TesttaskApplication in 4.582 seconds (process running for 5.033)
+2024-12-13T15:32:07.529+03:00 DEBUG 4008 --- [testtask] [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    insert 
+    into
+        employees
+        (password, role, username) 
+    values
+        (?, ?, ?)
+2024-12-13T15:32:07.543+03:00 ERROR 4008 --- [testtask] [http-nio-8080-exec-8] o.h.engine.jdbc.spi.SqlExceptionHelper   : ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "employees_username_key"
+  Подробности: Ключ "(username)=(ivan@mail.ru)" уже существует.
+2024-12-13T15:33:26.841+03:00  INFO 16528 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Starting TesttaskApplication using Java 17.0.2 with PID 16528 (C:\Users\ms199\Desktop\TaskManagementSystem\target\classes started by ms199 in C:\Users\ms199\Desktop\TaskManagementSystem)
+2024-12-13T15:33:26.844+03:00 DEBUG 16528 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Running with Spring Boot v3.4.0, Spring v6.2.0
+2024-12-13T15:33:26.846+03:00  INFO 16528 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-12-13T15:33:30.809+03:00  INFO 16528 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Started TesttaskApplication in 4.431 seconds (process running for 4.773)
+2024-12-13T15:37:50.433+03:00  INFO 20036 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Starting TesttaskApplication using Java 17.0.2 with PID 20036 (C:\Users\ms199\Desktop\TaskManagementSystem\target\classes started by ms199 in C:\Users\ms199\Desktop\TaskManagementSystem)
+2024-12-13T15:37:50.438+03:00 DEBUG 20036 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Running with Spring Boot v3.4.0, Spring v6.2.0
+2024-12-13T15:37:50.440+03:00  INFO 20036 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-12-13T15:37:56.307+03:00  INFO 20036 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Started TesttaskApplication in 6.436 seconds (process running for 6.845)
+2024-12-13T15:49:09.470+03:00  INFO 5020 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Starting TesttaskApplication using Java 17.0.2 with PID 5020 (C:\Users\ms199\Desktop\TaskManagementSystem\target\classes started by ms199 in C:\Users\ms199\Desktop\TaskManagementSystem)
+2024-12-13T15:49:09.473+03:00 DEBUG 5020 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Running with Spring Boot v3.4.0, Spring v6.2.0
+2024-12-13T15:49:09.475+03:00  INFO 5020 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-12-13T15:49:14.168+03:00  INFO 5020 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Started TesttaskApplication in 5.195 seconds (process running for 5.619)
+2024-12-13T15:49:52.012+03:00 DEBUG 5020 --- [testtask] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.password,
+        e1_0.role,
+        e1_0.username 
+    from
+        employees e1_0
+2024-12-13T15:53:01.811+03:00  INFO 17496 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Starting TesttaskApplication using Java 17.0.2 with PID 17496 (C:\Users\ms199\Desktop\TaskManagementSystem\target\classes started by ms199 in C:\Users\ms199\Desktop\TaskManagementSystem)
+2024-12-13T15:53:01.814+03:00 DEBUG 17496 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Running with Spring Boot v3.4.0, Spring v6.2.0
+2024-12-13T15:53:01.815+03:00  INFO 17496 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-12-13T15:53:06.684+03:00  INFO 17496 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Started TesttaskApplication in 5.287 seconds (process running for 5.709)
+2024-12-13T15:53:09.935+03:00 DEBUG 17496 --- [testtask] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.password,
+        e1_0.role,
+        e1_0.username 
+    from
+        employees e1_0 
+    where
+        e1_0.id=?
+2024-12-13T15:53:09.978+03:00 DEBUG 17496 --- [testtask] [http-nio-8080-exec-1] c.s.testtask.service.EmployeeService     : employee is found in DB: Employee(id=1, username=admin@mail.ru, password=1234, role=ADMIN) 
+2024-12-13T15:53:13.961+03:00 DEBUG 17496 --- [testtask] [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        e1_0.id,
+        e1_0.password,
+        e1_0.role,
+        e1_0.username 
+    from
+        employees e1_0 
+    where
+        e1_0.id=?
+2024-12-13T15:53:13.963+03:00  INFO 17496 --- [testtask] [http-nio-8080-exec-3] c.s.t.e.MyEntityNotFoundException        : Entity not found with id=10

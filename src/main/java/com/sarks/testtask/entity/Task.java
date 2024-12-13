@@ -1,18 +1,18 @@
 package com.sarks.testtask.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString(exclude = {"admin", "performer", "comments"})
 @Builder
 @Entity
+@Table(name = "tasks")
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,19 +22,26 @@ public class Task {
 
     private String description;
 
+    @Enumerated(EnumType.STRING)
     private Status status;
 
+    @Enumerated(EnumType.STRING)
     private Priority priority;
 
-    @OneToOne(cascade = CascadeType.REMOVE)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "admin_id")
     private Employee admin;
 
-    @OneToOne(cascade = CascadeType.REMOVE)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "performer_id")
     private Employee performer;
 
-    @OneToMany(cascade = CascadeType.REMOVE)
-    @JoinColumn(name = "task_id")
-    private List<Comment> comment;
+    @Builder.Default
+    @OneToMany(cascade = CascadeType.REMOVE, mappedBy = "task")
+    private List<Comment> comments = new ArrayList<>();
+
+    public void addComment(Comment comment) {
+        this.comments.add(comment);
+        comment.setTask(this);
+    }
 }

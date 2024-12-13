@@ -1,12 +1,15 @@
 package com.sarks.testtask.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
+@Builder
 @Entity
+@Table(name = "employees")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

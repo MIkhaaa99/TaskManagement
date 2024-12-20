@@ -178,3 +178,7 @@
     where
         e1_0.id=?
 2024-12-13T15:53:13.963+03:00  INFO 17496 --- [testtask] [http-nio-8080-exec-3] c.s.t.e.MyEntityNotFoundException        : Entity not found with id=10
+2024-12-16T02:57:23.254+03:00  INFO 16536 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Starting TesttaskApplication using Java 17.0.2 with PID 16536 (C:\Users\ms199\Desktop\TaskManagementSystem\target\classes started by ms199 in C:\Users\ms199\Desktop\TaskManagementSystem)
+2024-12-16T02:57:23.260+03:00 DEBUG 16536 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Running with Spring Boot v3.4.0, Spring v6.2.0
+2024-12-16T02:57:23.262+03:00  INFO 16536 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-12-16T02:57:30.909+03:00  INFO 16536 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Started TesttaskApplication in 8.576 seconds (process running for 9.439)

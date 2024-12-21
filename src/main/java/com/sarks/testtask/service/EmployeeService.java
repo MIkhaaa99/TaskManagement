@@ -10,6 +10,7 @@ import com.sarks.testtask.entity.Role;
 import com.sarks.testtask.entity.Task;
 import com.sarks.testtask.exceptions.EntityAlreadyExistsException;
 import com.sarks.testtask.exceptions.MyEntityNotFoundException;
+import com.sarks.testtask.mapper.PageEmployeeToListEmployeeDtoMapper;
 import com.sarks.testtask.repository.EmployeeRepository;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
@@ -29,8 +30,9 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    public List<Employee> getEmployees() {
-        return employeeRepository.findAll();
+    public List<EmployeeDto> getEmployees(Pageable pageable) {
+        var employees = employeeRepository.findAll(pageable);
+        return PageEmployeeToListEmployeeDtoMapper.convertFrom(employees);
     }
 
     public Employee findById(Long id) {
@@ -62,7 +64,7 @@ public class EmployeeService {
         }
 
         log.debug("Created employee from DB: {} ", employeeFromDB);
-        EmployeeDto employeeDto = new EmployeeDto(employeeFromDB.getId(), employeeFromDB.getUsername());
+        EmployeeDto employeeDto = new EmployeeDto(employeeFromDB.getId(), employeeFromDB.getUsername(), employeeFromDB.getRole());
         log.debug("EmployeeDto: {} ", employeeFromDB);
         return employeeDto;
     }
@@ -73,11 +75,11 @@ public class EmployeeService {
                 .map(task -> {
                     List<Comment> comments = task.getComments();
                     List<CommentWithUserDto> commentDtos = comments.stream()
-                            .map(comment -> new CommentWithUserDto(comment.getId(), comment.getText(), new EmployeeDto(comment.getEmployee().getId(), comment.getEmployee().getUsername())))
+                            .map(comment -> new CommentWithUserDto(comment.getId(), comment.getText(), new EmployeeDto(comment.getEmployee().getId(), comment.getEmployee().getUsername(), comment.getEmployee().getRole())))
                             .collect(Collectors.toList());
                     return new EmployeeTasksWithCommentsDto(task.getId(), task.getTitle(), task.getDescription(),
-                            new EmployeeDto(task.getAdmin().getId(), task.getAdmin().getUsername()),
-                            new EmployeeDto(task.getPerformer().getId(), task.getPerformer().getUsername()),
+                            new EmployeeDto(task.getAdmin().getId(), task.getAdmin().getUsername(), task.getAdmin().getRole()),
+                            new EmployeeDto(task.getPerformer().getId(), task.getPerformer().getUsername(), task.getPerformer().getRole()),
                             commentDtos);
                 }).collect(Collectors.toList());
 

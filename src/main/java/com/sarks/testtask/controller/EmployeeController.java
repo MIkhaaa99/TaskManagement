@@ -6,6 +6,7 @@ import com.sarks.testtask.dto.employee.EmployeeTasksWithCommentsDto;
 import com.sarks.testtask.entity.Employee;
 import com.sarks.testtask.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -35,8 +36,10 @@ public class EmployeeController {
     }
 
     @GetMapping
-    public List<Employee> getEmployees() {
-        return employeeService.getEmployees();
+    public List<EmployeeDto> getEmployees(@RequestParam(defaultValue = "0") int page,
+                                       @RequestParam(defaultValue = "20") int size) {
+        Pageable paging = PageRequest.of(page, size);
+        return employeeService.getEmployees(paging);
     }
 
     @GetMapping("/{id}")

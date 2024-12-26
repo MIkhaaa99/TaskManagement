@@ -1,8 +1,72 @@
-2024-12-21T13:45:12.792+03:00  INFO 10092 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Starting TesttaskApplication using Java 17.0.2 with PID 10092 (C:\Users\ms199\Desktop\JavaProjects\TaskManagementSystem\target\classes started by ms199 in C:\Users\ms199\Desktop\JavaProjects\TaskManagementSystem)
-2024-12-21T13:45:12.809+03:00 DEBUG 10092 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Running with Spring Boot v3.4.0, Spring v6.2.0
-2024-12-21T13:45:12.811+03:00  INFO 10092 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-12-21T13:45:18.299+03:00  INFO 10092 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Started TesttaskApplication in 6.027 seconds (process running for 6.62)
-2024-12-21T13:46:17.505+03:00 DEBUG 10092 --- [testtask] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+2024-12-26T18:23:06.825+03:00  INFO 21904 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Starting TesttaskApplication using Java 17.0.2 with PID 21904 (C:\Users\ms199\Desktop\JavaProjects\TaskManagementSystem\target\classes started by ms199 in C:\Users\ms199\Desktop\JavaProjects\TaskManagementSystem)
+2024-12-26T18:23:06.842+03:00 DEBUG 21904 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Running with Spring Boot v3.4.0, Spring v6.2.0
+2024-12-26T18:23:06.847+03:00  INFO 21904 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : No active profile set, falling back to 1 default profile: "default"
+2024-12-26T18:23:12.700+03:00  INFO 21904 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Started TesttaskApplication in 6.53 seconds (process running for 6.958)
+2024-12-26T18:24:11.667+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        a1_0.id,
+        a1_0.password,
+        a1_0.role,
+        a1_0.username,
+        c1_0.task_id,
+        c1_0.id,
+        c1_0.employee_id,
+        c1_0.text,
+        t1_0.description,
+        p1_0.id,
+        p1_0.password,
+        p1_0.role,
+        p1_0.username,
+        t1_0.priority,
+        t1_0.status,
+        t1_0.title 
+    from
+        tasks t1_0 
+    left join
+        comments c1_0 
+            on t1_0.id=c1_0.task_id 
+    join
+        employees a1_0 
+            on a1_0.id=t1_0.admin_id 
+    join
+        employees p1_0 
+            on p1_0.id=t1_0.performer_id 
+    where
+        t1_0.admin_id=?
+2024-12-26T18:25:13.622+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-4] org.hibernate.SQL                        : 
+    select
+        t1_0.id,
+        a1_0.id,
+        a1_0.password,
+        a1_0.role,
+        a1_0.username,
+        c1_0.task_id,
+        c1_0.id,
+        c1_0.employee_id,
+        c1_0.text,
+        t1_0.description,
+        p1_0.id,
+        p1_0.password,
+        p1_0.role,
+        p1_0.username,
+        t1_0.priority,
+        t1_0.status,
+        t1_0.title 
+    from
+        tasks t1_0 
+    left join
+        comments c1_0 
+            on t1_0.id=c1_0.task_id 
+    join
+        employees a1_0 
+            on a1_0.id=t1_0.admin_id 
+    join
+        employees p1_0 
+            on p1_0.id=t1_0.performer_id 
+    where
+        t1_0.admin_id=?
+2024-12-26T18:25:22.774+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-5] org.hibernate.SQL                        : 
     select
         e1_0.id,
         e1_0.password,
@@ -10,49 +74,34 @@
         e1_0.username 
     from
         employees e1_0 
-    offset
-        ? rows 
-    fetch
-        first ? rows only
-2024-12-21T13:46:17.546+03:00 DEBUG 10092 --- [testtask] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    where
+        e1_0.id=?
+2024-12-26T18:25:22.784+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-5] c.s.testtask.service.EmployeeService     : employee is found in DB: Employee(id=1, username=admin@mail.ru, password=1234, role=ADMIN) 
+2024-12-26T18:25:22.786+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-5] org.hibernate.SQL                        : 
     select
-        count(e1_0.id) 
+        t1_0.id,
+        t1_0.admin_id,
+        t1_0.description,
+        t1_0.performer_id,
+        t1_0.priority,
+        t1_0.status,
+        t1_0.title 
     from
-        employees e1_0
-2024-12-21T13:46:43.612+03:00 DEBUG 10092 --- [testtask] [http-nio-8080-exec-3] org.hibernate.SQL                        : 
-    select
-        e1_0.id,
-        e1_0.password,
-        e1_0.role,
-        e1_0.username 
-    from
-        employees e1_0 
-    offset
-        ? rows 
-    fetch
-        first ? rows only
-2024-12-21T13:46:51.861+03:00 DEBUG 10092 --- [testtask] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
-    select
-        e1_0.id,
-        e1_0.password,
-        e1_0.role,
-        e1_0.username 
-    from
-        employees e1_0 
-    offset
-        ? rows 
-    fetch
-        first ? rows only
-2024-12-21T13:46:51.863+03:00 DEBUG 10092 --- [testtask] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
-    select
-        count(e1_0.id) 
-    from
-        employees e1_0
-2024-12-21T16:26:55.605+03:00  INFO 24532 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Starting TesttaskApplication using Java 17.0.2 with PID 24532 (C:\Users\ms199\Desktop\JavaProjects\TaskManagementSystem\target\classes started by ms199 in C:\Users\ms199\Desktop\JavaProjects\TaskManagementSystem)
-2024-12-21T16:26:55.608+03:00 DEBUG 24532 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Running with Spring Boot v3.4.0, Spring v6.2.0
-2024-12-21T16:26:55.609+03:00  INFO 24532 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-12-21T16:27:00.568+03:00  INFO 24532 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Started TesttaskApplication in 5.392 seconds (process running for 5.971)
-2024-12-21T16:27:19.249+03:00 DEBUG 24532 --- [testtask] [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+        tasks t1_0 
+    where
+        t1_0.id=?
+2024-12-26T18:25:22.790+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-5] com.sarks.testtask.service.TaskService   : task is found in DB: Task(id=1, title=Wash dog, description=Just take a soap and wash dog, status=IN_PROGRESS, priority=LOW) 
+2024-12-26T18:25:22.792+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-5] c.s.t.m.CommentCreationToCommentMapper   : Convert to comment: Task(id=1, title=Wash dog, description=Just take a soap and wash dog, status=IN_PROGRESS, priority=LOW) 
+2024-12-26T18:25:22.814+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    insert 
+    into
+        comments
+        (employee_id, task_id, text) 
+    values
+        (?, ?, ?)
+2024-12-26T18:25:22.856+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-5] c.sarks.testtask.service.CommentService  : Created comment from DB: Comment(id=31, text=Выполнять приказ!) 
+2024-12-26T18:25:22.858+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-5] c.s.t.m.CommentToCreatedCommentMapper    : Convert to createdCommentDto: CreatedCommentDto[id=31, text=Выполнять приказ!, employee=EmployeeDto[id=1, username=admin@mail.ru, role=ADMIN], taskId=1] 
+2024-12-26T18:25:57.788+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
     select
         e1_0.id,
         e1_0.password,
@@ -60,27 +109,30 @@
         e1_0.username 
     from
         employees e1_0 
-    offset
-        ? rows 
-    fetch
-        first ? rows only
-2024-12-21T16:44:06.391+03:00  INFO 24060 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Starting TesttaskApplication using Java 17.0.2 with PID 24060 (C:\Users\ms199\Desktop\JavaProjects\TaskManagementSystem\target\classes started by ms199 in C:\Users\ms199\Desktop\JavaProjects\TaskManagementSystem)
-2024-12-21T16:44:06.403+03:00 DEBUG 24060 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Running with Spring Boot v3.4.0, Spring v6.2.0
-2024-12-21T16:44:06.416+03:00  INFO 24060 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : No active profile set, falling back to 1 default profile: "default"
-2024-12-21T16:44:13.112+03:00  INFO 24060 --- [testtask] [main] com.sarks.testtask.TesttaskApplication   : Started TesttaskApplication in 7.464 seconds (process running for 7.974)
-2024-12-21T16:47:44.181+03:00 DEBUG 24060 --- [testtask] [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    where
+        e1_0.id=?
+2024-12-26T18:25:57.789+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-6] c.s.testtask.service.EmployeeService     : employee is found in DB: Employee(id=1, username=admin@mail.ru, password=1234, role=ADMIN) 
+2024-12-26T18:25:57.790+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
     select
-        e1_0.id,
-        e1_0.password,
-        e1_0.role,
-        e1_0.username 
+        t1_0.id,
+        t1_0.admin_id,
+        t1_0.description,
+        t1_0.performer_id,
+        t1_0.priority,
+        t1_0.status,
+        t1_0.title 
     from
-        employees e1_0 
-    offset
-        ? rows 
-    fetch
-        first ? rows only
-2024-12-21T16:47:44.215+03:00 DEBUG 24060 --- [testtask] [http-nio-8080-exec-2] c.s.t.m.EmployeeToEmployeeDtoMapper      : Convert to employeeDto: EmployeeDto[id=1, username=admin@mail.ru, role=ADMIN] 
-2024-12-21T16:47:44.217+03:00 DEBUG 24060 --- [testtask] [http-nio-8080-exec-2] c.s.t.m.EmployeeToEmployeeDtoMapper      : Convert to employeeDto: EmployeeDto[id=2, username=ivan@mail.ru, role=PERFORMER] 
-2024-12-21T16:47:44.217+03:00 DEBUG 24060 --- [testtask] [http-nio-8080-exec-2] c.s.t.m.EmployeeToEmployeeDtoMapper      : Convert to employeeDto: EmployeeDto[id=3, username=katya@mail.ru, role=PERFORMER] 
-2024-12-21T16:47:44.217+03:00 DEBUG 24060 --- [testtask] [http-nio-8080-exec-2] .t.m.PageEmployeeToListEmployeeDtoMapper : Convert to List<EmployeeDto>: [EmployeeDto[id=1, username=admin@mail.ru, role=ADMIN], EmployeeDto[id=2, username=ivan@mail.ru, role=PERFORMER], EmployeeDto[id=3, username=katya@mail.ru, role=PERFORMER]] 
+        tasks t1_0 
+    where
+        t1_0.id=?
+2024-12-26T18:25:57.791+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-6] com.sarks.testtask.service.TaskService   : task is found in DB: Task(id=1, title=Wash dog, description=Just take a soap and wash dog, status=IN_PROGRESS, priority=LOW) 
+2024-12-26T18:25:57.791+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-6] c.s.t.m.CommentCreationToCommentMapper   : Convert to comment: Task(id=1, title=Wash dog, description=Just take a soap and wash dog, status=IN_PROGRESS, priority=LOW) 
+2024-12-26T18:25:57.792+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-6] org.hibernate.SQL                        : 
+    insert 
+    into
+        comments
+        (employee_id, task_id, text) 
+    values
+        (?, ?, ?)
+2024-12-26T18:25:57.794+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-6] c.sarks.testtask.service.CommentService  : Created comment from DB: Comment(id=32, text=Не вижу результата!) 
+2024-12-26T18:25:57.795+03:00 DEBUG 21904 --- [testtask] [http-nio-8080-exec-6] c.s.t.m.CommentToCreatedCommentMapper    : Convert to createdCommentDto: CreatedCommentDto[id=32, text=Не вижу результата!, employee=EmployeeDto[id=1, username=admin@mail.ru, role=ADMIN], taskId=1] 

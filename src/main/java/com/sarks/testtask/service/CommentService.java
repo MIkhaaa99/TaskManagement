@@ -26,8 +26,10 @@ public class CommentService {
     private TaskService taskService;
 
     public CreatedCommentDto createComment(CommentCreationDto commentCreationDto) {
-        Employee employee = employeeService.findById(commentCreationDto.employeeId());
-        Task task = taskService.findById(commentCreationDto.employeeId());
+        //Employee employee = employeeService.findById(commentCreationDto.employeeId());
+        //Task task = taskService.findById(commentCreationDto.employeeId());
+        Employee employee = employeeService.getReferenceById(commentCreationDto.employeeId());
+        Task task = taskService.getReferenceById(commentCreationDto.employeeId());
 
         Comment commentCandidate = CommentCreationToCommentMapper.convertFrom(commentCreationDto, employee, task);
         Comment commentFromDb = commentRepository.save(commentCandidate);

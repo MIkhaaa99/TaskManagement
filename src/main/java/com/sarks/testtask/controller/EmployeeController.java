@@ -6,7 +6,6 @@ import com.sarks.testtask.dto.employee.EmployeeTasksWithCommentsDto;
 import com.sarks.testtask.entity.Employee;
 import com.sarks.testtask.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
@@ -25,7 +24,7 @@ public class EmployeeController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteEmployee(@PathVariable Long id) {
-        employeeService.deleteEmployeeById(id);
+        employeeService.deleteById(id);
         return new ResponseEntity<>("User is deleted", HttpStatus.ACCEPTED);
     }
 
@@ -39,7 +38,7 @@ public class EmployeeController {
     public List<EmployeeDto> getEmployees(@RequestParam(defaultValue = "0") int page,
                                        @RequestParam(defaultValue = "20") int size) {
         Pageable paging = PageRequest.of(page, size);
-        return employeeService.getEmployees(paging);
+        return employeeService.findAll(paging);
     }
 
     @GetMapping("/{id}")

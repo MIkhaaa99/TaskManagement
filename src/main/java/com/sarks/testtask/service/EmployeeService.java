@@ -10,6 +10,8 @@ import com.sarks.testtask.entity.Role;
 import com.sarks.testtask.entity.Task;
 import com.sarks.testtask.exceptions.EntityAlreadyExistsException;
 import com.sarks.testtask.exceptions.MyEntityNotFoundException;
+import com.sarks.testtask.mapper.EmployeeCreationDtoToEmployee;
+import com.sarks.testtask.mapper.EmployeeToEmployeeDtoMapper;
 import com.sarks.testtask.mapper.PageEmployeeToListEmployeeDtoMapper;
 import com.sarks.testtask.repository.EmployeeRepository;
 import lombok.Getter;
@@ -30,7 +32,7 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    public List<EmployeeDto> getEmployees(Pageable pageable) {
+    public List<EmployeeDto> findAll(Pageable pageable) {
         var employees = employeeRepository.findAll(pageable);
         return PageEmployeeToListEmployeeDtoMapper.convertFrom(employees);
     }
@@ -45,16 +47,12 @@ public class EmployeeService {
         return employeeRepository.getReferenceById(id);
     }
 
-    public void deleteEmployeeById(Long id) {
+    public void deleteById(Long id) {
         employeeRepository.deleteById(id);
     }
 
     public EmployeeDto createEmployee(EmployeeCreationDto employeeCreationDto) {
-        Employee employee = Employee.builder()
-                .username(employeeCreationDto.getUsername())
-                .password(employeeCreationDto.getPassword())
-                .role(Role.PERFORMER)
-                .build();
+        Employee employee = EmployeeCreationDtoToEmployee.convertFrom(employeeCreationDto);
 
         Employee employeeFromDB;
         try {
@@ -64,9 +62,7 @@ public class EmployeeService {
         }
 
         log.debug("Created employee from DB: {} ", employeeFromDB);
-        EmployeeDto employeeDto = new EmployeeDto(employeeFromDB.getId(), employeeFromDB.getUsername(), employeeFromDB.getRole());
-        log.debug("EmployeeDto: {} ", employeeFromDB);
-        return employeeDto;
+        return EmployeeToEmployeeDtoMapper.convertFrom(employeeFromDB);
     }
 
     public List<EmployeeTasksWithCommentsDto> getAllTasksAndComments(Long id, Pageable pageable) {

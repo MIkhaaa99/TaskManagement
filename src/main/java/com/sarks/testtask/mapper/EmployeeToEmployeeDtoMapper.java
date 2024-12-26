@@ -13,7 +13,7 @@ public class EmployeeToEmployeeDtoMapper {
                 .username(employee.getUsername())
                 .role(employee.getRole())
                 .build();
-        log.debug("Convert to employeeDto: {} ", employeeDto);
+        log.debug("Convert to EmployeeDto: {} ", employeeDto);
         return employeeDto;
     }
 }

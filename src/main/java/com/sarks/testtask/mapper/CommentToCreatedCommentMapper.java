@@ -12,7 +12,7 @@ public class CommentToCreatedCommentMapper {
         CreatedCommentDto createdCommentDto = CreatedCommentDto.builder()
                 .id(comment.getId())
                 .text(comment.getText())
-                .employee(new EmployeeDto(comment.getEmployee().getId(), comment.getEmployee().getUsername(), comment.getEmployee().getRole()))
+                .employeeId(comment.getEmployee().getId())
                 .taskId(comment.getTask().getId())
                 .build();
         log.debug("Convert to createdCommentDto: {} ", createdCommentDto);

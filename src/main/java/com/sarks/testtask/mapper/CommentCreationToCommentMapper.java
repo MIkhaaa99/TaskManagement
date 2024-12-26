@@ -15,7 +15,7 @@ public class CommentCreationToCommentMapper {
                 .employee(employee)
                 .task(task)
                 .build();
-        log.debug("Convert to comment: {} ", task);
+        log.debug("Convert to Comment: {} ", comment);
         return comment;
     }
 }
